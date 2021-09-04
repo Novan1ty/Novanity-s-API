@@ -17,7 +17,7 @@ router.get('/wheresmywater/:text', (req, res) => {
     const Template = createCanvas(800, 900)
     const Canvas = Template.getContext('2d')
     
-    Canvas.font = '30px sans'
+    Canvas.font = '30px Courier'
     Canvas.fillStyle = 'black'
     Canvas.textAlign = 'left'
     

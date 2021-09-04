@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
             '/images/opinion/'
         ]
     }
-    res.send(Endpoints)
+    res.json(Endpoints)
 })
 
 app.use('/images', Image_Route)
