@@ -7,7 +7,7 @@ const favicon = require('serve-favicon')
 
 const Image_Route = require('./Routes/Images')
 
-app.use(favicon(path.join(__dirname, 'Main', 'Mitch.ico')))
+app.use(favicon(path.join(__dirname, 'Assets', 'Mitch.ico')))
 
 app.get('/', (req, res) => {
     const Endpoints = {
