@@ -84,7 +84,7 @@ router.get('/art', async (req, res) => {
 
     Context.drawImage(Chosen_Image, 436, 43, 145, 170)
     Context.drawImage(Chosen_Image, 438, 379, 146, 174)
-    Context.drawImage(Template, 0, 0, 637, 675)
+    Context.drawImage(Template, 0, 0, Canvas.width, Canvas.height)
 
     const Image = Canvas.toBuffer()
 

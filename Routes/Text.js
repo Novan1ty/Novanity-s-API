@@ -6,12 +6,16 @@ const Text_Query = {
 }
 
 router.get('/', (req, res) => {
-    res.send('Heya.')
+    const Text = {
+        Endpoints: '/owofy'
+    }
+
+    res.json(Text)
 })
 
 router.get('/owofy', (req, res) => {
     const Text = req.query.text
-    if (!Text) return res.json(Text_Query)
+    if (!Text) return res.status(400).json(Text_Query)
 
     OwOfy = Text.replace(/(?:r|l)/g, "w")
     OwOfy = OwOfy.replace(/(?:R|L)/g, "W")
