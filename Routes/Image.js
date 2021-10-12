@@ -21,7 +21,24 @@ const Image_URL_Query = {
 }
 
 router.get('/', (req, res) => {
-    res.send('Heya.')
+    const Endpoints = {
+        Endpoints: [
+            '/wheresmywater?text=',
+            '/opinion?text=',
+            '/art?image=',
+            '/greyscale?image=&intensity',
+            '/invert?image=',
+            '/sepia?image=',
+            '/blur?image=',
+            '/gaussian?image=',
+            '/posterize?image=',
+            '/circle?image=',
+            '/pixellate?image=',
+            '/brightness?image='
+        ]
+    }
+
+    res.send(Endpoints)
 })
 
 router.get('/wheresmywater', async (req, res) => {
@@ -71,6 +88,7 @@ router.get('/art', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await loadImage(Image_URL)
     } catch {
@@ -97,6 +115,7 @@ router.get('/greyscale', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -107,7 +126,7 @@ router.get('/greyscale', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 router.get('/invert', async (req, res) => {
@@ -115,6 +134,7 @@ router.get('/invert', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -125,7 +145,7 @@ router.get('/invert', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 router.get('/sepia', async (req, res) => {
@@ -133,6 +153,7 @@ router.get('/sepia', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -143,7 +164,7 @@ router.get('/sepia', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 router.get('/blur', async (req, res) => {
@@ -153,6 +174,7 @@ router.get('/blur', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -163,7 +185,7 @@ router.get('/blur', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 router.get('/gaussian', async (req, res) => {
@@ -173,6 +195,7 @@ router.get('/gaussian', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -183,7 +206,7 @@ router.get('/gaussian', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 router.get('/posterize', async (req, res) => {
@@ -193,6 +216,7 @@ router.get('/posterize', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -203,7 +227,7 @@ router.get('/posterize', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 router.get('/circle', async (req, res) => {
@@ -211,6 +235,7 @@ router.get('/circle', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -221,7 +246,7 @@ router.get('/circle', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 router.get('/pixellate', async (req, res) => {
@@ -231,6 +256,7 @@ router.get('/pixellate', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -241,7 +267,7 @@ router.get('/pixellate', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 router.get('/brightness', async (req, res) => {
@@ -251,6 +277,7 @@ router.get('/brightness', async (req, res) => {
     if (!Image_URL) return res.status(400).json(Image_Query)
 
     let Chosen_Image;
+    
     try {
         Chosen_Image = await jimp.read(Image_URL)
     } catch {
@@ -277,7 +304,7 @@ router.get('/brightness', async (req, res) => {
     const Image = await Chosen_Image.getBufferAsync('image/png')
     
     res.set(Content)
-    res.send(Image)
+    res.status(200).send(Image)
 })
 
 function Wrap_Text(Context, Text, x, y, Max_Width, Line_Height) {

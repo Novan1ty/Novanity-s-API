@@ -6,11 +6,11 @@ const Text_Query = {
 }
 
 router.get('/', (req, res) => {
-    const Text = {
-        Endpoints: '/owofy'
+    const Endpoints = {
+        Endpoints: '/owofy?text='
     }
 
-    res.json(Text)
+    res.send(Endpoints)
 })
 
 router.get('/owofy', (req, res) => {
