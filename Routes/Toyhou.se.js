@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
                 '/character?url=',
                 '/profile?url=',
                 '/gallery?url=',
-                '/created?url=',
+                '/creation?url=',
                 '/tags?url=',
                 '/all?url='
             ]
@@ -37,7 +37,7 @@ router.get('/creator', async (req, res) => {
     }
 
     const Creator = await Character.Creator()
-    return res.status(200).json({ Creator: Creator })
+    return res.status(200).json(Creator)
 })
 
 router.get('/character', async (req, res) => {
@@ -53,7 +53,7 @@ router.get('/character', async (req, res) => {
     }
 
     Character = await Character.Character()
-    return res.status(200).json({ Character: Character })
+    return res.status(200).json(Character)
 })
 
 router.get('/profile', async (req, res) => {
@@ -88,7 +88,7 @@ router.get('/gallery', async (req, res) => {
     return res.status(200).json({ Gallery: Gallery })
 })
 
-router.get('/created', async (req, res) => {
+router.get('/creation', async (req, res) => {
     const URL = req.query.url
     if (!URL) return res.status(400).json(URL_Query)
 
@@ -100,8 +100,8 @@ router.get('/created', async (req, res) => {
         return res.status(400).json(Existing_URL)
     }
 
-    const Created = await Character.Created()
-    return res.status(200).json({ Created: Created })
+    const Creation = await Character.Creation()
+    return res.status(200).json(Creation)
 })
 
 router.get('/tags', async (req, res) => {
