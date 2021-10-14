@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
             Endpoints: [
                 '/creator?url=',
                 '/character?url=',
-                '/profile?ur=',
+                '/profile?url=',
                 '/gallery?url=',
                 '/created?url=',
                 '/tags?url=',
@@ -37,7 +37,7 @@ router.get('/creator', async (req, res) => {
     }
 
     const Creator = await Character.Creator()
-    return res.status(200).json(Creator)
+    return res.status(200).json({ Creator: Creator })
 })
 
 router.get('/character', async (req, res) => {
@@ -53,7 +53,7 @@ router.get('/character', async (req, res) => {
     }
 
     Character = await Character.Character()
-    return res.status(200).json(Character)
+    return res.status(200).json({ Character: Character })
 })
 
 router.get('/profile', async (req, res) => {
@@ -69,7 +69,7 @@ router.get('/profile', async (req, res) => {
     }
 
     const Profile = await Character.Profile()
-    return res.status(200).json(Profile)
+    return res.status(200).json({ Profile: Profile })
 })
 
 router.get('/gallery', async (req, res) => {
